@@ -14,6 +14,8 @@ set novisualbell    " don't flash when encountering an error
 set foldenable      " enable code folding
 set fdm=manual      " set fold mode to manual
 set smartindent     " turn on intelligent indentation measures
+set tw=80           " set automatic line break to column 80
+set so=7            " keep cursor from moving >7 lines from edge of window
 
 " highlight characters running past column 80
 highlight rightMargin ctermfg=lightred
