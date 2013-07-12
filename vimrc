@@ -26,7 +26,3 @@ set background=dark
 " set English for spellchecking
 "set spell spelllang=en_us
 
-" attempt to save position of cursor in each file
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
-
