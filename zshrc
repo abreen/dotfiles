@@ -4,8 +4,6 @@ HISTFILE=~/.histfile            # where to store history
 HISTSIZE=1000
 SAVEHIST=1000                   
 
-bindkey -v                      # use vim-like prompt navigation
-
 autoload -Uz compinit colors
 compinit                        # turn on command completion
 colors                          # turn on colors
