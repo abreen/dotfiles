@@ -1,5 +1,3 @@
-" Alexander Breen (alexander.breen@gmail.com)
-
 syntax on           " turns on syntax highlighting
 set tabstop=4       " how many columns a tab spans
 set shiftwidth=2    " how many columns text is indented with >>, <<, etc.
