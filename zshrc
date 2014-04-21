@@ -8,7 +8,7 @@ autoload -Uz compinit colors
 compinit                        # turn on command completion
 colors                          # turn on colors
 
-PROMPT="%{$fg_no_bold[magenta]%}%m %{$fg_bold[white]%} %{$fg_no_bold[blue]%}%~ %{$fg[white]%} %{$reset_color%}"
+PROMPT="%{$fg_no_bold[magenta]%}%m %{$fg_no_bold[blue]%}%~ %{$reset_color%}"
 
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
