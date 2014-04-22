@@ -1,6 +1,6 @@
 syntax on           " turns on syntax highlighting
 set tabstop=4       " how many columns a tab spans
-set shiftwidth=2    " how many columns text is indented with >>, <<, etc.
+set shiftwidth=4    " how many columns text is indented with >>, <<, etc.
 set expandtab       " expand tab characters to spaces
 set smarttab
 set number          " turns on line numbers on the left margin
@@ -21,7 +21,7 @@ highlight rightMargin ctermfg=lightred
 match rightMargin /.\%>80v/
 
 " choose colors based on dark background
-colorscheme koehler
+"colorscheme koehler
 set background=dark
 
 " set English for spellchecking

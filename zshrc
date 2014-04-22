@@ -1,5 +1,9 @@
 # User specific aliases and functions
 
+if [[ -f ~/.bashrc ]]; then
+    source ~/.bashrc
+fi
+
 HISTFILE=~/.histfile            # where to store history
 HISTSIZE=1000
 SAVEHIST=1000                   
