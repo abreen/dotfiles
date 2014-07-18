@@ -13,7 +13,7 @@ hc() {
 hc emit_hook reload
 
 if [ -e "$(which feh 2>/dev/null)" ] ; then
-  feh --bg-fill ~/.wallpaper/current.jpg
+  feh --bg-fill "$(find ~/.wallpaper/General -type f | shuf -n 1)"
 elif [ -e "$(which xsetroot 2>/dev/null)" ] ; then
   xsetroot -solid '#222'
 fi
