@@ -2,6 +2,8 @@ urxvt*font:                 xft:PragmataPro:pixelsize=16
 urxvt*letterSpace:          -2
 urxvt*scrollBar:            false
 
+urxvt*termName:             rxvt-256color
+
 urxvt*background:           #2e3436
 urxvt*foreground:           #eeeeec
 urxvt*cursorColor:          #729fcf
