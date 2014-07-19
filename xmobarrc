@@ -58,7 +58,9 @@ Config { font = "xft:Inconsolata:size=12"
                                    , "-O"
                                    , "Charging"
                                    , "-o"
-                                   , "Discharging" ] 600
+                                   , "Discharging"
+                                   , "-i"
+                                   , "AC only" ] 600
                     , Run Wireless "wlp8s0"
                                    [ "-t"
                                    , "WiFi: <essid> (<quality>)"
