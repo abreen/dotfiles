@@ -11,10 +11,14 @@ set magic           " use regular expressions in search patterns
 set noerrorbells    " don't beep or flash when encountering an error
 set novisualbell    " don't flash when encountering an error
 set foldenable      " enable code folding
-set fdm=manual      " set fold mode to manual
+set fdm=syntax      " set fold mode
+set foldnestmax=2
 set smartindent     " turn on intelligent indentation measures
-set tw=80           " set automatic line break to column 80
 set so=7            " keep cursor from moving >7 lines from edge of window
+
+" show tab characters with triangle and trailing spaces with dot
+set listchars=tab:▸\ ,trail:·
+set list
 
 " highlight characters running past column 80
 highlight rightMargin ctermfg=lightred

@@ -12,7 +12,8 @@ autoload -Uz compinit colors
 compinit                        # turn on command completion
 colors                          # turn on colors
 
-PROMPT="%{$fg_no_bold[magenta]%}%m %{$fg_no_bold[blue]%}%~ %{$reset_color%}"
+PROMPT="%{$fg_no_bold[blue]%}%m %{$fg_no_bold[green]%}%~ %{$reset_color%}"
+RPROMPT="%(?..%{$fg[red]%}%?%{$reset_color%})"
 
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
@@ -23,3 +24,5 @@ alias today="date +%F"
 alias v="vim"
 alias g="git"
 alias l="ls"
+alias la="ls -a"
+alias ll="ls -al"

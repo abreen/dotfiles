@@ -1,7 +1,7 @@
-urxvt*font:                 xft:Source Code Pro:pixelsize=13
+urxvt*font:                 xft:Inconsolata:pixelsize=16
 urxvt*letterSpace:          -1
-urxvt*scrollBar:            false
 
+urxvt*scrollBar:            false
 urxvt*termName:             rxvt-256color
 
 ! lucius by jonathanfilip
