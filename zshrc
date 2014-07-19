@@ -23,5 +23,3 @@ alias today="date +%F"
 alias v="vim"
 alias g="git"
 alias l="ls"
-
-alias hc="herbstclient"
