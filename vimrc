@@ -21,8 +21,8 @@ highlight rightMargin ctermfg=lightred
 match rightMargin /.\%>80v/
 
 " choose colors based on dark background
-"colorscheme koehler
-set background=dark
+colorscheme lucius
+set background=light
 
 " set English for spellchecking
 "set spell spelllang=en_us

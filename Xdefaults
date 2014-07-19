@@ -1,49 +1,28 @@
-urxvt*font:                 xft:PragmataPro:pixelsize=16
-urxvt*letterSpace:          -2
+urxvt*font:                 xft:Source Code Pro:pixelsize=13
+urxvt*letterSpace:          -1
 urxvt*scrollBar:            false
 
 urxvt*termName:             rxvt-256color
 
-urxvt*background:           #2e3436
-urxvt*foreground:           #eeeeec
-urxvt*cursorColor:          #729fcf
+! lucius by jonathanfilip
+! http://github.com/jonathanfilip/lucius
 
-! foreground color for underline
-
-urxvt*colorUL:              #8ae234
-
-! line color for underline
-
-urxvt*underlineColor:       #92659a
-
-! black dark/light
-urxvt*color0:               #2e3436
-urxvt*color8:               #6e706b
-
-! red dark/light
-urxvt*color1:               #cc0000
-urxvt*color9:               #ef2929
-
-! green dark/light
-urxvt*color2:               #4e9a06
-urxvt*color10:              #8ae234
-
-! yellow dark/light
-urxvt*color3:               #edd400
-urxvt*color11:              #fce94f
-
-! blue dark/light
-urxvt*color4:               #3465a4
-urxvt*color12:              #729fcf
-
-! magenta dark/light
-urxvt*color5:               #92659a
-urxvt*color13:              #c19fbe
-
-! cyan dark/light
-urxvt*color6:               #07c7ca
-urxvt*color14:              #63e9e9
-
-! white dark/light
-urxvt*color7:               #d3d7cf
-urxvt*color15:              #eeeeec
+*background:  #eeeeee
+*foreground:  #444444
+*cursorColor: #5f87af
+*color0:      #444444
+*color8:      #444444
+*color1:      #af0000
+*color9:      #af0000
+*color2:      #008700
+*color10:     #008700
+*color3:      #af5f00
+*color11:     #af5f00
+*color4:      #005faf
+*color12:     #005faf
+*color5:      #870087
+*color13:     #870087
+*color6:      #008787
+*color14:     #008787
+*color7:      #eeeeee
+*color15:     #eeeeee
