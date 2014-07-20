@@ -6,7 +6,7 @@ fi
 
 HISTFILE=~/.histfile            # where to store history
 HISTSIZE=1000
-SAVEHIST=1000                   
+SAVEHIST=1000
 
 autoload -Uz compinit colors
 compinit                        # turn on command completion
@@ -26,3 +26,19 @@ alias g="git"
 alias l="ls"
 alias la="ls -a"
 alias ll="ls -al"
+
+function dict() {
+    DICTFILE="$HOME/.de-en.tsv"
+
+    if [ ! -e "$DICTFILE" ]; then
+        echo "$0: no dictionary file found" >&2
+        return 1
+    fi
+
+    if [ -z "$1" ]; then
+        echo "$0: missing search term" >&2
+        return 2
+    fi
+
+    grep -i --color=always $1 "$DICTFILE" | less -R -X -F
+}
