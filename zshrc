@@ -15,6 +15,12 @@ colors                          # turn on colors
 PROMPT="%{$fg_no_bold[blue]%}%m %{$fg_no_bold[green]%}%~ %{$reset_color%}"
 RPROMPT="%(?..%{$fg[red]%}%?%{$reset_color%})"
 
+if [ "$TERM" = "vt220" ]; then
+    unsetopt prompt_sp
+    stty rows 24
+    stty cols 79
+fi
+
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 
@@ -22,7 +28,13 @@ alias motd="cat /etc/motd"
 alias today="date +%F"
 
 alias v="vim"
+
 alias g="git"
+alias gs="git status"
+alias gc="git commit"
+alias push="git push"
+alias pull="git pull"
+
 alias l="ls"
 alias la="ls -a"
 alias ll="ls -al"
