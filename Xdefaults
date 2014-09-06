@@ -1,28 +1,57 @@
-urxvt*font:                 xft:Inconsolata:pixelsize=16
-urxvt*letterSpace:          -1
+urxvt*font:                 xft:Pragmata Pro:pixelsize=16
+urxvt*letterSpace:          -2
 
 urxvt*scrollBar:            false
-urxvt*termName:             rxvt-256color
 
-! lucius by jonathanfilip
-! http://github.com/jonathanfilip/lucius
+*background:  #111111
+*foreground:  #eeeeee
 
-*background:  #eeeeee
-*foreground:  #444444
 *cursorColor: #5f87af
-*color0:      #444444
-*color8:      #444444
-*color1:      #af0000
-*color9:      #af0000
-*color2:      #008700
-*color10:     #008700
-*color3:      #af5f00
-*color11:     #af5f00
-*color4:      #005faf
-*color12:     #005faf
-*color5:      #870087
-*color13:     #870087
-*color6:      #008787
-*color14:     #008787
-*color7:      #eeeeee
+
+! black
+*color0:      #cccccc
+
+! dark gray
+*color8:      #cccccc
+
+! dark red
+*color1:      #d01716
+
+! red
+*color9:      #e51c23
+
+! dark green
+*color2:      #0a8f08
+
+! green
+*color10:     #259b24
+
+! dark yellow (amber)
+*color3:      #ffc107
+
+! yellow (orange)
+*color11:     #ff9800
+
+! dark blue (indigo)
+*color4:      #3f51b5
+
+! blue
+*color12:     #5677fc
+
+! dark magenta
+*color5:      #c2185b
+
+! magenta
+*color13:     #e91e63
+
+! dark cyan
+*color6:      #00838f
+
+! cyan
+*color14:     #00bcd4
+
+! light gray
+*color7:      #f4f4f4
+
+! white
 *color15:     #eeeeee

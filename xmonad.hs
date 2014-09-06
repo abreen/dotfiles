@@ -4,6 +4,8 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Spacing
+import XMonad.Layout.Gaps
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
@@ -16,12 +18,12 @@ main = do
     xmproc <- spawnPipe $ xmobarPath ++ " " ++ xmobarConfig
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , layoutHook = gaps [(L, 35)] $ avoidStruts $ smartSpacing 6 $ layoutHook defaultConfig
         , logHook = dynamicLogWithPP defaultPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "#005faf" "" . shorten 50
+                        , ppTitle = xmobarColor "#5677fc" "" . shorten 50
                         }
         , borderWidth        = 4
         , terminal           = "urxvt"
-        , normalBorderColor  = "#444444"
-        , focusedBorderColor = "#5f87af" }
+        , normalBorderColor  = "#222222"
+        , focusedBorderColor = "#666666" }

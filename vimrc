@@ -6,11 +6,8 @@ set hlsearch        " highlights all matches of search command
 set magic           " use regular expressions in search patterns
 set noerrorbells    " don't beep or flash when encountering an error
 set novisualbell    " don't flash when encountering an error
-set foldenable      " enable code folding
-set fdm=syntax      " set fold mode
-set foldnestmax=2
 set smartindent     " turn on intelligent indentation measures
-set so=7            " keep cursor from moving >7 lines from edge of window
+set so=3            " keep cursor from moving >3 lines from edge of window
 
 if &term != "vt220"
     syntax on
@@ -26,9 +23,8 @@ if &term != "vt220"
     highlight rightMargin ctermfg=lightred
     match rightMargin /.\%>80v/
 
-    " choose colors based on dark background
-    colorscheme lucius
-    set background=light
+    set background=dark
+    colorscheme berlin
 else
     set noruler
 endif
