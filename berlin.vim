@@ -31,7 +31,7 @@ highlight link IncSearch Search
 
 " syntax
 highlight Normal cterm=none ctermfg=white
-highlight Comment cterm=italic ctermfg=gray
+highlight Comment cterm=none ctermfg=gray
 highlight Constant cterm=none ctermfg=magenta
 highlight Operator ctermfg=green
 highlight Identifier cterm=none ctermfg=blue
