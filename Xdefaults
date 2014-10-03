@@ -3,55 +3,25 @@ urxvt*letterSpace:          -2
 
 urxvt*scrollBar:            false
 
-*background:  #111111
-*foreground:  #eeeeee
 
-*cursorColor: #5f87af
+! Wilhelm (by me, abreen@bu.edu)
+*background: #495056
+*foreground: #B3C0CB
+*cursorColor: #8498A7
 
-! black
-*color0:      #cccccc
-
-! dark gray
-*color8:      #cccccc
-
-! dark red
-*color1:      #d01716
-
-! red
-*color9:      #e51c23
-
-! dark green
-*color2:      #0a8f08
-
-! green
-*color10:     #259b24
-
-! dark yellow (amber)
-*color3:      #ffc107
-
-! yellow (orange)
-*color11:     #ff9800
-
-! dark blue (indigo)
-*color4:      #3f51b5
-
-! blue
-*color12:     #5677fc
-
-! dark magenta
-*color5:      #c2185b
-
-! magenta
-*color13:     #e91e63
-
-! dark cyan
-*color6:      #00838f
-
-! cyan
-*color14:     #00bcd4
-
-! light gray
-*color7:      #f4f4f4
-
-! white
-*color15:     #eeeeee
+*color0: #1C2329
+*color8: #414A52
+*color1: #A44656
+*color9: #BD0C2B
+*color2: #71A856
+*color10: #7ECE58
+*color3: #A56F48
+*color11: #D6874F
+*color4: #576BA7
+*color12: #3769FF
+*color5: #6C4E87
+*color13: #9A6CC4
+*color6: #4998C7
+*color14: #64ADDB
+*color7: #B3C0CB
+*color15: #D4DCE4
