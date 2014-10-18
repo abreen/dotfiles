@@ -1,6 +1,6 @@
-set tabstop=4       " how many columns a tab spans
-set shiftwidth=4    " how many columns text is indented with >>, <<, etc.
-set expandtab       " expand tab characters to spaces
+set tabstop=8       " how many columns a tab spans
+set shiftwidth=8    " how many columns text is indented with >>, <<, etc.
+"set expandtab       " expand tab characters to spaces
 set smarttab
 set hlsearch        " highlights all matches of search command
 set magic           " use regular expressions in search patterns
@@ -23,8 +23,8 @@ if &term != "vt220"
     highlight rightMargin ctermfg=lightred
     match rightMargin /.\%>80v/
 
-    set background=dark
-    colorscheme berlin
+    set background=light
+    "colorscheme berlin
 else
     set noruler
 endif
