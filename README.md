@@ -10,24 +10,24 @@ If you don't use OS X terminal, here are the hex color values, but
 I can't guarantee the colors will look exactly like mine on your
 display.
 
-    background: #495056
-    foreground: #B3C0CB
-    cursor: #8498A7
-    selection: #222D36
+    background: #171717
+    foreground: #B2C0CC
+    cursor: #8397A8
+    selection: #365067
     black: #1C2329
-    bright black: #414A52
-    red: #A44656
-    bright red: #BD0C2B
-    green: #71A856
-    bright green: #7ECE58
-    yellow: #A56F48
-    bright yellow: #D6874F
-    blue: #576BA7
-    bright blue: #3769FF
-    magenta: #6C4E87
-    bright magenta: #9A6CC4
-    cyan: #4998C7
-    bright cyan: #64ADDB
-    white: #B3C0CB
-    bright white: #D4DCE4
+    bright black: #404A52
+    red: #A64455
+    bright red: #BF0425
+    green: #6FA952
+    bright green: #7BD050
+    yellow: #A66F44
+    bright yellow: #D78749
+    blue: #5669A9
+    bright blue: #3364FF
+    magenta: #6C4C89
+    bright magenta: #9B69C6
+    cyan: #4597C9
+    bright cyan: #61ACDD
+    white: #B3C0CC
+    bright white: #D3DCE4
 
