@@ -1,34 +1,24 @@
-set tabstop=4       " how many columns a tab spans
-set shiftwidth=4    " how many columns text is indented with >>, <<, etc.
-set expandtab       " expand tab characters to spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set smarttab
-set hlsearch        " highlights all matches of search command
-set magic           " use regular expressions in search patterns
-set noerrorbells    " don't beep or flash when encountering an error
-set novisualbell    " don't flash when encountering an error
-set smartindent     " turn on intelligent indentation measures
-set so=3            " keep cursor from moving >3 lines from edge of window
+set hlsearch
+set magic
+set noerrorbells
+set novisualbell
+set smartindent
+set so=3
 
-if &term != "vt220"
-    syntax on
-    set number
-    set ruler
-    set showcmd
+syntax on
 
-    " show tab characters with triangle and trailing spaces with dot
-    set listchars=tab:▸\ ,trail:·
-    set list
+set number
+set ruler
+set showcmd
 
-    " highlight characters running past column 80
-    highlight rightMargin ctermfg=lightred
-    match rightMargin /.\%>80v/
+set listchars=tab:▸\ ,trail:·
+set list
 
-    set background=light
-    "colorscheme berlin
-else
-    set noruler
-endif
+highlight rightMargin ctermfg=lightred
+match rightMargin /.\%>80v/
 
-" set English for spellchecking
-"set spell spelllang=en_us
-
+set background=light
