@@ -23,4 +23,7 @@ match rightMargin /.\%>80v/
 
 set background=light
 
+au BufRead,BufNewFile *.dats set filetype=ats
+au BufRead,BufNewFile *.sats set filetype=ats
+
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
