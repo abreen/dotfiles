@@ -18,10 +18,12 @@ set showcmd
 set listchars=tab:▸\ ,trail:·
 set list
 
-highlight rightMargin ctermfg=lightred
+highlight rightMargin ctermbg=red ctermfg=white
 match rightMargin /.\%>80v/
 
-set background=light
+if &term == "xterm-256color-italic"
+  hi Comment cterm=italic
+endif
 
 au BufRead,BufNewFile *.dats set filetype=ats
 au BufRead,BufNewFile *.sats set filetype=ats
