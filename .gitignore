@@ -1,5 +1,6 @@
 fish/fish_history
 fish/fishd.*
 fish/generated_completions
+fish/.*
 
 vim/.*

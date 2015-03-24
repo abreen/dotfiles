@@ -1,3 +1,3 @@
 function save --description 'Save current directory for next time'
-    pwd > ~/.lastdir
+    pwd > $HOME/.lastdir
 end

@@ -45,6 +45,14 @@ set fish_color_operator 8abeb7
 set fish_color_escape 8abeb7
 set fish_color_cwd b5bd68
 
+# set up LS_COLORS (Linux) and LSCOLORS (OS X)
+set -x LS_COLORS 'di=34:ln=36:so=0:pi=0:ex=32:bd=35:cd=33:'
+set -x LSCOLORS  'exgxxxxxcxfxdx'
+
+# system-specific values at the end
+set -x LS_COLORS "$LS_COLORS""fi=0:or=31:mi=4"
+set -x LSCOLORS "$LSCOLORS""abagacad"
+
 set -x EDITOR vim
 
 set fish_greeting
