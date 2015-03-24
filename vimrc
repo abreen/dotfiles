@@ -20,7 +20,9 @@ set showcmd
 set listchars=tab:▸\ ,trail:·
 set list
 
-set background=light
+let base16colorspace=256  " Access colors present in 256 colorspace
+set background=dark
+colorscheme base16-tomorrow
 
 highlight rightMargin ctermbg=red ctermfg=white
 match rightMargin /.\%>80v/
