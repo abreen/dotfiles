@@ -13,7 +13,9 @@ if test -d $GNUBIN
     set PATH $PATH $GNUBIN
 end
 
-eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
+if test -f $HOME/.config/base16-shell/base16-tomorrow.dark.sh;
+    eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
+end
 
 set -x EDITOR vim
 
