@@ -1,3 +1,3 @@
 function socrates
-    $HOME/socrates/socrates.py $argv
+    ~/socrates/socrates.py $argv
 end

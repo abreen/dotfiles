@@ -1,11 +1,7 @@
 function fish_right_prompt
-    if test $PWD = $HOME;
-        return
-    end
-
-    set_color blue
+    set_color purple
     tput sitm
-    prompt_pwd
+    hostname | cut -d '.' -f 1
     tput ritm
     set_color normal
 end
