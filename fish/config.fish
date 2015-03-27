@@ -25,11 +25,6 @@ if test -d $PATSDIR
     set PATH $PATH $PATSHOME/bin
 end
 
-# prepare shell for 256 colors used by Base16
-if test -f $HOME/.config/base16-shell/base16-tomorrow.dark.sh
-    eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
-end
-
 # set up fish's colors to match Base16 theme
 set fish_color_normal c5c8c6
 set fish_color_command 81a2be
