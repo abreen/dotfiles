@@ -20,7 +20,6 @@ set showcmd
 set listchars=tab:▸\ ,trail:·
 set list
 
-let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 colorscheme base16-tomorrow
 
