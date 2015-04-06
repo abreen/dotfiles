@@ -2,13 +2,6 @@ if status --is-login; and test -f $HOME/bin
     set PATH $PATH $HOME/bin
 end
 
-# set up Plan 9, if present
-set PLAN9 /usr/local/plan9
-if test -d $PLAN9
-    set -x PLAN9 $PLAN9
-    set PATH $PATH $PLAN9/bin
-end
-
 # set up GNU coreutils, if present
 set GNUBIN /usr/local/opt/coreutils/libexec/gnubin
 if test -d $GNUBIN
