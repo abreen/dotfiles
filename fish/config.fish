@@ -1,11 +1,20 @@
 if status --is-login; and test -f $HOME/bin
-    set PATH $PATH $HOME/bin
+    set -x PATH $PATH $HOME/bin
 end
 
-# set up GNU coreutils, if present
-set GNUBIN /usr/local/opt/coreutils/libexec/gnubin
-if test -d $GNUBIN
-    set PATH $PATH $GNUBIN
+if which man 1>/dev/null
+    set -x MANPATH (man -W)
+end
+
+set HOMEBREW_PREFIX /usr/local
+if test -d "$HOMEBREW_PREFIX/Cellar"
+    # Homebrew is present; try to add GNU Coreutils to path
+    set GNUBIN "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
+    set GNUMAN "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman"
+    if test -d $GNUBIN
+        set -x PATH $GNUBIN $PATH
+        set -x MANPATH $GNUMAN $MANPATH
+    end
 end
 
 # set up ATS compiler, if present
@@ -33,8 +42,8 @@ set fish_color_operator 8abeb7
 set fish_color_escape 8abeb7
 set fish_color_cwd b5bd68
 
-# set up LS_COLORS (Linux) and LSCOLORS (OS X)
-set -x LS_COLORS 'di=34:ln=36:so=0:pi=0:ex=32:bd=35:cd=33:'
+# set up LS_COLORS (Linux/OS X with Coreutils) and LSCOLORS (OS X/BSD)
+set -x LS_COLORS 'di=34:ln=3;36:so=0:pi=0:ex=32:bd=35:cd=33:'
 set -x LSCOLORS 'exgxxxxxcxfxdx'
 
 # system-specific values at the end
