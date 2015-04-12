@@ -3,7 +3,7 @@ if status --is-login; and test -f $HOME/bin
 end
 
 if which man 1>/dev/null
-    set -x MANPATH (man -W)
+    set -x MANPATH (man --path)
 end
 
 set HOMEBREW_PREFIX /usr/local
