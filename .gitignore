@@ -4,3 +4,5 @@ fish/generated_completions
 fish/.*
 
 vim/.*
+
+.*.swp
