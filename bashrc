@@ -1,0 +1,4 @@
+export PATH="$HOME:$PATH"
+export LD_LIBRARY_PATH="$HOME/lib:$LD_LIBRARY_PATH"
+
+PS1='$ '
