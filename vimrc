@@ -36,9 +36,13 @@ if &term =~ "xterm"
   set list
 
   set background=dark
-  colorscheme base16-tomorrow
 
-  if &term == "xterm-256color-italic"
+  if &term =~ "color"
+    colorscheme base16-tomorrow
+  endif
+
+
+  if &term =~ "italic"
     hi Comment cterm=italic
   endif
 
