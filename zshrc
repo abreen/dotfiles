@@ -6,7 +6,16 @@ setopt correctall
 autoload -U colors
 colors
 
-export PS1="%{$fg_no_bold[green]%}%m%{$reset_color%} %{$fg_no_bold[blue]%}%~%{$reset_color%} "
+hname() {
+    if hostname | grep 'wireless' 1>/dev/null; then
+        echo -n 'W'
+    else
+        echo -n "$(hostname)"
+    fi
+}
+
+setopt PROMPT_SUBST
+PROMPT="%{$fg_no_bold[green]%}$(hname)%{$reset_color%} %{$fg_no_bold[blue]%}%~%{$reset_color%} "
 
 export PATH="$PATH:$HOME/bin"
 
