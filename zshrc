@@ -1,8 +1,6 @@
 autoload -U compinit
 compinit
 
-setopt correctall
-
 autoload -U colors
 colors
 
@@ -18,6 +16,10 @@ setopt PROMPT_SUBST
 PROMPT="%{$fg_no_bold[green]%}$(hname)%{$reset_color%} %{$fg_no_bold[blue]%}%~%{$reset_color%} "
 
 export PATH="$PATH:$HOME/bin"
+
+if which man 1>/dev/null; then
+    export MANPATH="$(man --path)"
+fi
 
 HOMEBREW_PREFIX="/usr/local"
 
