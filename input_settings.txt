@@ -15,7 +15,6 @@ by re-downloading the fonts at <http://input.fontbureau.com/download>.
 	Alternates
 		--asterisk=height
 		--braces=straight
-		--i=serifs_round
-		--l=serifs_round
+		--i=serif
 
-	Line Height: 1.2×
+	Line Height: 1.3×
