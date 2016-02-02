@@ -34,7 +34,7 @@ alias gs='g status'
 unalias s
 
 function j() {
-    JAVA_REGEX='(.*)\.java'
+    JAVA_REGEX='(.*)\.(java)?'
 
     if [[ $1 =~ $JAVA_REGEX ]]; then
         class=${BASH_REMATCH[1]}
@@ -43,10 +43,23 @@ function j() {
     fi
 
     echo "compiling $class class..."
+
     javac $class.java
+    e=$?
+
+    if [[ $e != 0 ]]; then
+        rm -f *.class
+        return $e
+    fi
 
     echo "running $class class..."
+
     java $class
+    e=$?
 
     rm -f *.class
+
+    if [[ $e != 0 ]]; then
+        return $e
+    fi
 }

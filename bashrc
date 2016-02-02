@@ -50,9 +50,17 @@ CLEAR="\[\e[0m\]"
 
 if [[ `hostname` =~ csa([0-9]+)\.bu\.edu ]]; then
     NUM="${BASH_REMATCH[1]}"
-    SYMBOL=$RED$NUM'∵'$CLEAR
+    SYMBOL=$NUM'∵'
 else
-    SYMBOL=$BLUE'∴'$CLEAR
+    SYMBOL='∴'
 fi
 
-PS1="$SYMBOL "
+function prompt() {
+    if [[ $? = 0 ]]; then
+        PS1="$BLUE$SYMBOL$CLEAR "
+    else
+        PS1="$RED$SYMBOL$CLEAR "
+    fi
+}
+
+export PROMPT_COMMAND=prompt
