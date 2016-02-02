@@ -21,6 +21,7 @@ s emacs e
 s pwd p
 s cd '~'
 s exit q
+s python3 3
 
 s git g
 alias gp='g pull'
@@ -31,3 +32,21 @@ alias ga='g add'
 alias gs='g status'
 
 unalias s
+
+function j() {
+    JAVA_REGEX='(.*)\.java'
+
+    if [[ $1 =~ $JAVA_REGEX ]]; then
+        class=${BASH_REMATCH[1]}
+    else
+        class=$1
+    fi
+
+    echo "compiling $class class..."
+    javac $class.java
+
+    echo "running $class class..."
+    java $class
+
+    rm -f *.class
+}
