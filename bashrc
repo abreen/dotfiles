@@ -44,8 +44,9 @@ export LS_COLORS="$LS_COLORS""fi=0:or=31:mi=4:ow=30;44"
 export LSCOLORS="$LSCOLORS""abagaeae"
 
 # set up prompt
-BLUE="\[\e[34m\]"
 RED="\[\e[31m\]"
+YELLOW="\[\e[33m\]"
+BLUE="\[\e[34m\]"
 CLEAR="\[\e[0m\]"
 
 if [[ `hostname` =~ csa([0-9]+)\.bu\.edu ]]; then
@@ -57,9 +58,9 @@ fi
 
 function prompt() {
     if [[ $? = 0 ]]; then
-        PS1="$BLUE$SYMBOL$CLEAR "
+        PS1="$BLUE$SYMBOL$CLEAR $YELLOW\w$CLEAR "
     else
-        PS1="$RED$SYMBOL$CLEAR "
+        PS1="$RED$SYMBOL$CLEAR $YELLOW\w$CLEAR "
     fi
 }
 
