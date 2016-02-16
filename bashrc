@@ -45,22 +45,25 @@ export LSCOLORS="$LSCOLORS""abagaeae"
 
 # set up prompt
 RED="\[\e[31m\]"
+GREEN="\[\e[32m\]"
 YELLOW="\[\e[33m\]"
 BLUE="\[\e[34m\]"
+MAGENTA="\[\e[35m\]"
+CYAN="\[\e[36m\]"
 CLEAR="\[\e[0m\]"
 
 if [[ `hostname` =~ csa([0-9]+)\.bu\.edu ]]; then
     NUM="${BASH_REMATCH[1]}"
-    SYMBOL=$NUM'∵'
+    SYMBOL=$NUM'▶︎'
 else
-    SYMBOL='∴'
+    SYMBOL='▶︎'
 fi
 
 function prompt() {
     if [[ $? = 0 ]]; then
-        PS1="$BLUE$SYMBOL$CLEAR $YELLOW\w$CLEAR "
+        PS1="$GREEN$SYMBOL$CLEAR $MAGENTA\w$CLEAR "
     else
-        PS1="$RED$SYMBOL$CLEAR $YELLOW\w$CLEAR "
+        PS1="$RED$SYMBOL$CLEAR $MAGENTA\w$CLEAR "
     fi
 }
 
