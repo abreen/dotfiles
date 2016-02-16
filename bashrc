@@ -117,10 +117,14 @@ fi
 
 function prompt() {
     if [[ $? != 0 ]]; then
-        PS1="$RED_"`echo -n ‼︎`"$RESET $BLACK_\w$RESET "
+        PS1="$RED_"`echo -n ‼︎`"$RESET $BLACK_"
     else
-        PS1="$SYMBOL $BLACK_\w$RESET "
+        PS1="$SYMBOL $BLACK_"
     fi
+
+    path=`echo $PWD | sed "s%$HOME%~%" | sed 's/\.\.\./⋮/'`
+
+    PS1+="$path$RESET "
 }
 
 export PROMPT_COMMAND=prompt
