@@ -1,4 +1,4 @@
-export EDITOR='vim'
+export EDITOR=vim
 
 # set up local directories, if necessary
 if [[ -d "$HOME/bin" ]]; then
@@ -11,6 +11,10 @@ fi
 
 if [[ -d "$HOME/lib/pkgconfig" ]]; then
     export PKG_CONFIG_PATH="$HOME/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
+
+if [[ -d "/usr/local/lib/haxe/std" ]]; then
+    export HAXE_STD_PATH="/usr/local/lib/haxe/std"
 fi
 
 if which man 1>/dev/null; then
@@ -73,58 +77,19 @@ BLINK_OFF="\[\e[25m\]"
 
 INVERTED="\[\e[7m\]"
 
-function abbrev() {
-    str=`echo $1 | tr [:upper:] [:lower:] | tr -d [:punct:]`
-
-    len=${#str}
-
-    low=1
-    mid=$(($len/2))
-    high=$len
-
-    echo $str | cut -c $low,$mid,$high
+function branch() {
+    output=`git branch 2>/dev/null | cut -d ' ' -f 2-`
+    if [[ ! -z "$output" ]]; then
+        echo -n "$RESET#$MAGENTA$output"
+    fi
 }
-
-function color() {
-    c=`echo $1 | md5sum | cut -c 1`
-
-    case $c in
-    0) echo $YELLOW ;;
-    1) echo $RED ;;
-    2) echo $GREEN ;;
-    3) echo $YELLOW ;;
-    4) echo $BLUE ;;
-    5) echo $MAGENTA ;;
-    6) echo $CYAN ;;
-    7) echo $RED_ ;;
-    8) echo $RED ;;
-    9) echo $GREEN ;;
-    a) echo $YELLOW ;;
-    b) echo $BLUE ;;
-    c) echo $MAGENTA ;;
-    d) echo $CYAN ;;
-    e) echo $RED_ ;;
-    f) echo $MAGENTA ;;
-    esac
-}
-
-if [[ $HOSTNAME =~ csa([0-9]+)\.bu\.edu ]]; then
-    num="${BASH_REMATCH[1]}"
-    SYMBOL=`color $HOSTNAME`"bu$num$RESET"
-else
-    SYMBOL=`color $HOSTNAME``abbrev $HOSTNAME`$RESET
-fi
 
 function prompt() {
     if [[ $? != 0 ]]; then
-        PS1="$RED_"`echo -n ‼︎`"$RESET $BLACK_"
+        PS1="$BLUE\W$(branch)$RESET "
     else
-        PS1="$SYMBOL $BLACK_"
+        PS1="$BLUE\W$(branch)$RESET "
     fi
-
-    path=`echo $PWD | sed "s%$HOME%~%" | sed 's/\.\.\./⋮/'`
-
-    PS1+="$path$RESET "
 }
 
 export PROMPT_COMMAND=prompt
