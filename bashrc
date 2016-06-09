@@ -78,7 +78,7 @@ BLINK_OFF="\[\e[25m\]"
 INVERTED="\[\e[7m\]"
 
 function branch() {
-    output=`git branch 2>/dev/null | cut -d ' ' -f 2-`
+    output=`git branch --contains HEAD 2>/dev/null | cut -d ' ' -f 2-`
     if [[ ! -z "$output" ]]; then
         echo -n "$RESET#$MAGENTA$output"
     fi
