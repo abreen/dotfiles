@@ -28,6 +28,7 @@ alias gp='g pull'
 alias gP='g push'
 alias gd='g diff'
 alias gc='g commit -m'
+alias gC='g checkout'
 alias ga='g add'
 alias gs='g status'
 
@@ -47,7 +48,7 @@ function j() {
     javac $class.java
     e=$?
 
-    if [[ $e != 0 ]]; then
+    if [[ $e -ne 0 ]]; then
         rm -f *.class
         return $e
     fi
@@ -59,7 +60,32 @@ function j() {
 
     rm -f *.class
 
-    if [[ $e != 0 ]]; then
+    if [[ $e -ne 0 ]]; then
         return $e
     fi
+}
+
+function _() {
+    which python3 2>&1 1>/dev/null
+
+    if [[ $? -ne 0 ]]; then
+        echo $0: ${FUNCNAME[0]}: could not find Python 3 interpreter
+        return 1
+    fi
+
+    python3 -B <<PYTHON
+from functools import *
+
+def listize(f):
+    def g(*args):
+        return list(f(*args))
+    return g
+
+map = listize(map)
+filter = listize(filter)
+
+print($*)
+PYTHON
+
+    return $?
 }
