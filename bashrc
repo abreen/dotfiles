@@ -80,15 +80,15 @@ INVERTED="\[\e[7m\]"
 function branch() {
     output=$(git branch 2>/dev/null | grep '^\*' | tail -c +3)
     if [[ ! -z "$output" ]]; then
-        echo -n "$RESET#$MAGENTA$output"
+        echo -n "$RESET@$MAGENTA$output"
     fi
 }
 
 function prompt() {
     if [[ $? != 0 ]]; then
-        PS1="$BLUE\W$(branch)$RESET "
+        PS1="$GREEN\h$RESET:$BLUE\W$(branch)$RESET "
     else
-        PS1="$BLUE\W$(branch)$RESET "
+        PS1="$GREEN\h$RESET:$BLUE\W$(branch)$RESET "
     fi
 }
 
