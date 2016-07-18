@@ -2,6 +2,8 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
 autocmd Filetype sh setlocal expandtab
 autocmd Filetype python setlocal expandtab
 autocmd Filetype php setlocal expandtab
