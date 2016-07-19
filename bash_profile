@@ -100,6 +100,10 @@ function note() {
     if [[ -z "$NOTES_DIR" ]]; then
         echo "$NAME: error: \$NOTES_DIR is not set"
         return 2
+    else
+        mkdir -p "$NOTES_DIR"
+        NOTES_DIR_LEN=`echo "$NOTES_DIR" | wc -m`
+        NOTES_DIR_LEN=`echo $NOTES_DIR_LEN + 1 | bc`
     fi
 
     if [[ -z "$1" ]]; then
@@ -114,7 +118,7 @@ function note() {
         vim "$TODAY_DIR/$TIME.md"
 
     elif [[ "$action" = "list" ]] || [[ "$action" = "l" ]]; then
-        _note_listall | nl -s '. ' -w 3
+        _note_listall | cut -c $NOTES_DIR_LEN- | nl -s '. ' -w 3
 
     elif [[ "$action" = "edit" ]] || [[ "$action" = "e" ]]; then
         if [[ -z "$2" ]]; then
@@ -137,7 +141,7 @@ function note() {
             return 3
         fi
 
-        grep -r "$2" "$NOTES_DIR"
+        _note_listall | xargs grep --color=always -H "$2" | cut -c $NOTES_DIR_LEN-
 
     elif [[ "$action" = "help" ]] || [[ "$action" = "-h" ]] || [[ "$action" = "--help" ]]; then
         echo "usage: $NAME ACTION [ARGS]"
@@ -155,3 +159,7 @@ function note() {
 s note n
 
 unalias s
+
+if [[ -f "$HOME/.profile" ]]; then
+    source "$HOME/.profile"
+fi
