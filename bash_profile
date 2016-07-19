@@ -141,7 +141,7 @@ function note() {
             return 3
         fi
 
-        _note_listall | xargs grep --color=always -H "$2" | cut -c $NOTES_DIR_LEN-
+        _note_listall | xargs grep --color=never -H "$2" | cut -c $NOTES_DIR_LEN-
 
     elif [[ "$action" = "help" ]] || [[ "$action" = "-h" ]] || [[ "$action" = "--help" ]]; then
         echo "usage: $NAME ACTION [ARGS]"
