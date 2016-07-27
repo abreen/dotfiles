@@ -2,7 +2,10 @@ source $HOME/.bashrc
 
 alias edit="$EDITOR"
 
-alias ls='ls --color=auto --indicator-style=none --group-directories-first'
+if [[ ! -z "$GNUBIN" ]]; then
+    alias ls='ls --color=auto --indicator-style=none --group-directories-first'
+fi
+
 alias ll='ls -lh'
 
 function shorten() {

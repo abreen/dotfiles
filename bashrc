@@ -24,13 +24,13 @@ fi
 # if Homebrew (OS X) is used, and GNU Coreutils are installed, use them first
 HOMEBREW_PREFIX="/usr/local"
 
-if [[ -e "$HOMEBREW_PREFIX/Cellar" ]]; then
+if [[ -d "$HOMEBREW_PREFIX/Cellar/opt/coreutils/libexec/gnubin" ]]; then
     export GNUBIN="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
-    export GNUMAN="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman"
+    export PATH="$GNUBIN:$PATH"
+fi
 
-    if [[ -d "$GNUBIN" ]]; then
-        export PATH="$GNUBIN:$PATH"
-    fi
+if [[ -d "$HOMEBREW_PREFIX/Cellar/opt/coreutils/libexec/gnuman" ]]; then
+    export GNUMAN="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman"
 
     if [[ -z "$MANPATH" ]]; then
         export MANPATH="$GNUMAN"
