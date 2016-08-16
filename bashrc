@@ -22,15 +22,15 @@ if which man 1>/dev/null; then
 fi
 
 # if Homebrew (OS X) is used, and GNU Coreutils are installed, use them first
-HOMEBREW_PREFIX="/usr/local"
+HOMEBREW_PREFIX="/usr/local/opt"
 
-if [[ -d "$HOMEBREW_PREFIX/Cellar/opt/coreutils/libexec/gnubin" ]]; then
-    export GNUBIN="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
+if [[ -d "$HOMEBREW_PREFIX/coreutils/libexec/gnubin" ]]; then
+    export GNUBIN="$HOMEBREW_PREFIX/coreutils/libexec/gnubin"
     export PATH="$GNUBIN:$PATH"
 fi
 
-if [[ -d "$HOMEBREW_PREFIX/Cellar/opt/coreutils/libexec/gnuman" ]]; then
-    export GNUMAN="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman"
+if [[ -d "$HOMEBREW_PREFIX/coreutils/libexec/gnuman" ]]; then
+    export GNUMAN="$HOMEBREW_PREFIX/coreutils/libexec/gnuman"
 
     if [[ -z "$MANPATH" ]]; then
         export MANPATH="$GNUMAN"
