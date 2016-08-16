@@ -121,7 +121,7 @@ function note() {
         vim "$TODAY_DIR/$TIME.md"
 
     elif [[ "$action" = "list" ]] || [[ "$action" = "l" ]]; then
-        _note_listall | cut -c $NOTES_DIR_LEN- | nl -s '. ' -w 3
+        head -q -n 1 $(_note_listall) | cut -c -60 | paste -d ' ' <(_note_listall | cut -c $NOTES_DIR_LEN-) - | nl -s '. ' -w 3
 
     elif [[ "$action" = "edit" ]] || [[ "$action" = "e" ]]; then
         if [[ -z "$2" ]]; then
