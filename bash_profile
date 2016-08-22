@@ -15,18 +15,16 @@ function shorten() {
     alias $short=$long
 }
 
-shorten shorten s
+shorten ls l
+shorten top t
+shorten vim v
+shorten edit e
+shorten pwd p
+shorten cd '~'
+shorten exit q
+shorten python3 3
 
-s ls l
-s top t
-s vim v
-s edit e
-s pwd p
-s cd '~'
-s exit q
-s python3 3
-
-s git g
+shorten git g
 alias gp='g pull'
 alias gP='g push'
 alias gd='g diff'
@@ -159,9 +157,7 @@ function note() {
     fi
 }
 
-s note n
-
-unalias s
+shorten note n
 
 if [[ -f "$HOME/.profile" ]]; then
     source "$HOME/.profile"
