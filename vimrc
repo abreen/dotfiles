@@ -44,20 +44,3 @@ set listchars=tab:▸\ ,trail:·
 set list
 
 set number
-
-call plug#begin('~/.vim/plugged')
-Plug 'metakirby5/codi.vim'
-Plug 'scrooloose/nerdtree'
-call plug#end()
-
-" :PlugInstall          install plugins
-" :PlugUpdate           install or update plugins
-" :PlugClean            remove unused directories
-" :PlugUpgrade          upgrade vim-plug
-" :PlugStatus           status of plugins
-
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
