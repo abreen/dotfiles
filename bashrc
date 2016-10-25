@@ -19,6 +19,7 @@ export EDITOR=vim
 
 alias edit="$EDITOR"
 
+alias ls='ls --color=auto'
 alias l=ls
 alias ll='ls -lh'
 alias v=vim
