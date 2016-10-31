@@ -36,6 +36,7 @@ alias gC='git commit -m'
 alias gc='git checkout'
 alias ga='git add'
 alias gs='git status'
+alias gS='git stash'
 alias gl='git log'
 
 function _() {
