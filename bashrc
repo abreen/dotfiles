@@ -61,6 +61,27 @@ PYTHON
   return "$?"
 }
 
+function define() {
+  if [[ -z "$1" ]]; then
+    return 1
+  fi  
+
+  curl --silent \
+       -X GET \
+       --header 'Accept: application/json' \
+       "http://api.pearson.com/v2/dictionaries/ldoce5/entries?headword=$1" | \
+       python3 -B -c "
+import sys
+import json
+response = json.loads(sys.stdin.read())
+definitions = []
+for result in response['results']:
+  for sense in result['senses']:
+    for definition in sense['definition']:
+      print('* ' + definition)
+"
+}
+
 function _note_listall() {
   find "$NOTES_DIR" -not -path '*/\.' -type f \( ! -iname ".*" \) -a \( ! -name "*~" \) | sort -r
 }
