@@ -17,15 +17,10 @@ export LSCOLORS="$LSCOLORS""abagaeae"
 
 export EDITOR=vim
 
-alias edit="$EDITOR"
-
 alias ls='ls --color=auto'
 alias l=ls
 alias ll='ls -lh'
 alias v=vim
-alias p=pwd
-alias '~'=cd
-alias q=exit
 alias 3=python3
 
 alias g=git
@@ -36,122 +31,7 @@ alias gC='git commit -m'
 alias gc='git checkout'
 alias ga='git add'
 alias gs='git status'
-alias gS='git stash'
 alias gl='git log'
-
-function _() {
-  which python3 2>&1 1>/dev/null
-
-  if [[ $? -ne 0 ]]; then
-    echo "$0: ${FUNCNAME[0]}: could not find Python 3 interpreter"
-    return 1
-  fi
-
-  python3 -B <<PYTHON
-from functools import *
-def listize(f):
-    def g(*args):
-        return list(f(*args))
-    return g
-map = listize(map)
-filter = listize(filter)
-print($*)
-PYTHON
-
-  return "$?"
-}
-
-function define() {
-  if [[ -z "$1" ]]; then
-    return 1
-  fi  
-
-  curl --silent \
-       -X GET \
-       --header 'Accept: application/json' \
-       "http://api.pearson.com/v2/dictionaries/ldoce5/entries?headword=$1" | \
-       python3 -B -c "
-import sys
-import json
-response = json.loads(sys.stdin.read())
-definitions = []
-for result in response['results']:
-  for sense in result['senses']:
-    for definition in sense['definition']:
-      print('* ' + definition)
-"
-}
-
-function _note_listall() {
-  find "$NOTES_DIR" -not -path '*/\.' -type f \( ! -iname ".*" \) -a \( ! -name "*~" \) | sort -r
-}
-
-function note() {
-  NAME="${FUNCNAME[0]}"
-  DAY="$(date +%Y-%m-%d)"
-  TIME="$(date +%H:%M:%S)"
-
-  if [[ -z "$NOTES_DIR" ]]; then
-    echo "$NAME: error: \$NOTES_DIR is not set"
-    return 2
-  else
-    mkdir -p "$NOTES_DIR"
-    NOTES_DIR_LEN=$(echo "$NOTES_DIR" | wc -m)
-    NOTES_DIR_LEN=$(($NOTES_DIR_LEN + 1))
-  fi
-
-  if [[ -z "$1" ]]; then
-    action=help
-  else
-    action="$1"
-  fi
-
-  if [[ "$action" = new ]] || [[ "$action" = n ]]; then
-    TODAY_DIR="$NOTES_DIR/$DAY"
-    mkdir -p "$TODAY_DIR"
-    vim "$TODAY_DIR/$TIME.md"
-
-  elif [[ "$action" = list ]] || [[ "$action" = l ]]; then
-    head -q -n 1 $(_note_listall) | cut -c -60 | paste -d ' ' <(_note_listall | cut -c $NOTES_DIR_LEN-) - | nl -s '. ' -w 3
-
-  elif [[ "$action" = edit ]] || [[ "$action" = e ]]; then
-    if [[ -z "$2" ]]; then
-      echo "$NAME: error: specify a note number (from $NAME list)"
-      return 4
-    fi
-
-    path="$(_note_listall | sed -n "${2}p")"
-
-    if [[ -z "$path" ]]; then
-      echo "$NAME: error: invalid note number (out of range?)"
-      return 5
-    fi
-
-    "$EDITOR" "$path"
-
-  elif [[ "$action" = match ]] || [[ "$action" = m ]]; then
-    if [[ -z "$2" ]]; then
-      echo "$NAME: error: specify a regex to use"
-      return 3
-    fi
-
-    _note_listall | xargs grep --color=never -H "$2" | cut -c $NOTES_DIR_LEN-
-
-  elif [[ "$action" = help ]] || [[ "$action" = '-h' ]] || [[ "$action" = '--help' ]]; then
-    echo "usage: $NAME ACTION [ARGS]"
-    echo "       $NAME new"
-    echo "       $NAME list"
-    echo "       $NAME match REGEX"
-    echo "       $NAME help"
-
-  else
-    echo "$NAME: error: invalid action"
-    return 1
-
-  fi
-}
-
-alias n=note
 
 # set up prompt
 
@@ -202,11 +82,5 @@ export PROMPT_COMMAND=prompt
 
 shopt -s nullglob
 
-for rc in $HOME/.bashrc-*; do
-  if [[ "${rc##*.}" = swp ]] || [[ "${rc:(-1):1}" = '~' ]]; then
-    # skip Vim swap files or backup files
-    continue
-  fi
-
-  . "$rc"
-done
+# run environment-specific configs
+#. .bashrc-work

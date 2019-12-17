@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # vim: et:ts=2:sw=2
 
 FILES='profile bash_profile bashrc vimrc'
