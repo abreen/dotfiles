@@ -6,9 +6,9 @@ export CLICOLOR=1
 export EDITOR=vim
 
 if which exa >/dev/null; then
-    alias ls='exa'
-    alias ll='exa -la'
-    alias L='exa -l -T -L 2'
+    alias ls='exa --git'
+    alias ll='ls -la'
+    alias L='ls -l -T -L 2'
 else
     alias ll='ls -lhac'
 fi
